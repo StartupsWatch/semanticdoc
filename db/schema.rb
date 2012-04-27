@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120426122451) do
     t.integer  "data_model_id"
     t.string   "name"
     t.string   "description"
+    t.string   "sample_data"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end

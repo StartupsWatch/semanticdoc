@@ -5,6 +5,7 @@ class CreateProperties < ActiveRecord::Migration
       t.integer       :data_model_id
       t.string        :name
       t.string        :description
+      t.string        :sample_data
       
       t.timestamps
     end
