@@ -1,0 +1,17 @@
+<div class="field clear">
+  <div class="row">
+    <label class="pull-right"><%= f.link_to_remove "<i class='icon-remove'></i> remove".html_safe, class: "btn" %></label>
+  <%= f.label :data_model_id, "*Data Type", class: "span3" %>
+  <%= f.select(:data_model_id, options_for_select(DataModel.all.sort! { |a,b| a.name.downcase <=> b.name.downcase }.collect {|dm| [dm.acceptable_data.name.capitalize, dm.id]}, f.object.data_model_id), {}, :class => "span3") %>
+  </div>
+  <div class="row">
+    <%= f.label :name, "*Name", class: "span3" %><%= f.text_field :name, class: "span5" %>
+  </div>
+  <div class="row">
+    <%= f.label :description, "*Description", class: "span3" %><%= f.text_field :description, class: "span8" %>
+  </div>
+  <div class="row">
+    <%= f.label :sample_data, "Sample data", class: "span3" %><%= f.text_field :sample_data, class: "span8" %>
+  </div>
+</div>
+<hr />

@@ -1,0 +1,7 @@
+<h1>Full Hierarchy</h1>
+<hr />
+<ul>
+<% @semantic_schemas.each do |semantic_schema| %>
+  <%= render "semantic_schema", semantic_schema: semantic_schema %>
+<% end %>
+</ul>

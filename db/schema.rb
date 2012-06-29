@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(:version => 20120426122451) do
 
   create_table "semantic_schemas", :force => true do |t|
     t.string   "name"
+    t.string   "description"
     t.string   "ancestry"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "semantic_schemas", ["ancestry"], :name => "index_semantic_schemas_on_ancestry"

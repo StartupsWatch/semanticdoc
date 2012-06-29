@@ -1,0 +1,24 @@
+<%= nested_form_for [:admin, @semantic_schema] do |f| %>
+  <div class="row">
+  <%= f.label :parent_id, "Parent Semantic Schema", class: "span3" %>
+  <%= f.select(:parent_id, options_for_select(SemanticSchema.order("name ASC").all.collect {|ss| [ss.name.capitalize, ss.id]}, f.object.parent_id), { :include_blank => true }, class: "span3") %>
+  </div>
+  <hr />
+  <div class="row">
+    <%= f.label :name, "*Name", class: "span3" %>
+    <%= f.text_field :name, :class => "span3" %>
+  </div>
+  <hr />
+  <div class="row">
+    <%= f.label :description, "Description", class: "span3" %>
+    <%= f.text_field :description, :class => "span6" %>
+  </div>
+  <hr />  <div class="inner-fields">
+    <%= f.fields_for :properties do |builder| %>
+      <% render :partial => 'property_fields', :locals => {:f => builder} %>
+    <% end %>
+    <%= f.link_to_add "<i class='icon-plus'></i> add a property".html_safe, :properties, :class => "btn btn-success" %>
+  </div>
+  <hr />
+  <%= f.submit "save", class: "btn btn-primary" %>
+<% end %>

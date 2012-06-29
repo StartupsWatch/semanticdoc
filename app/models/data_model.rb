@@ -1,10 +1,13 @@
 class DataModel < ActiveRecord::Base
   # Mass Assignment
-  attr_accessible :data_type, :data_id
+  attr_accessible :acceptable_data, :data_id
   
-  belongs_to :data_type, polymorphic: true
+  # Relations
+  has_many :properties, inverse_of: :data_model
+  belongs_to :acceptable_data, polymorphic: true
   
+  # Methods
   def name
-    @name |= self.data_type.name
+    @name ||= self.acceptable_data.name.capitalize
   end
 end

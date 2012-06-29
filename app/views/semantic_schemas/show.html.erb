@@ -1,0 +1,33 @@
+<% content_for :title do %><%= @semantic_schema.name.capitalize %><% end %>
+<ul class="breadcrumb">
+<% @semantic_schema.path.each do |schema| %>
+  <% unless schema.id == @semantic_schema.id %>
+  <li><%= link_to schema.name.capitalize, semantic_schema_path(schema) %> <span class="divider">></span></li>
+  <% end %>
+<% end %>
+  <li><%= link_to @semantic_schema.name.capitalize, semantic_schema_path(@semantic_schema) %></li>
+  <li class="description"><div><%=@semantic_schema.description%></div></li>
+</ul>
+<table class="table table-bordered table-condensed table-striped">
+  <thead>
+    <tr>
+      <th class="span2">Property</th>
+      <th class="span3">Expected Type</th>
+      <th class="span6">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @semantic_schema.path.each do |schema| %>
+    <tr>
+      <th colspan="3" class="span12">Properties from <%=link_to schema.name.capitalize, semantic_schema_path(schema)%></th>
+    </tr>
+    <% schema.properties.each do |property| %>
+    <tr>
+      <th class="span2"><%=property.name.capitalize %></th>
+      <td class="span3"><%=property.data_model.name%></td>
+      <td class="span7"><%=property.description.capitalize%><%="(<strong>Example:</strong> #{property.sample_data})".html_safe if property.sample_data.present? %></div></td>
+    </tr>
+    <% end %>
+<% end %>
+  </tbody>
+</table>
