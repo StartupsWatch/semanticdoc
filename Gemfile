@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 
 # DB
+group :production do
+  gem 'mysql2'
+end
 gem 'sqlite3'
 gem 'ancestry'
 gem 'thin'
