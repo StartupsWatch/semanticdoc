@@ -1,4 +1,6 @@
-<% content_for :title do %><%= @semantic_schema.name %><% end %>
+<% content_for :meta do %>
+  <title><%= @semantic_schema.name %> Ontology - semanticdoc</title>
+<% end %>
 <ul class="breadcrumb">
 <% @semantic_schema.path.each do |schema| %>
   <% unless schema.id == @semantic_schema.id %>
