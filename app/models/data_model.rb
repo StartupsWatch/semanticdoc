@@ -8,6 +8,6 @@ class DataModel < ActiveRecord::Base
   
   # Methods
   def name
-    @name ||= self.acceptable_data.name.capitalize
+    @name ||= self.acceptable_data.name
   end
 end

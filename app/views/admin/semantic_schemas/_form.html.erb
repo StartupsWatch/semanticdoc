@@ -1,7 +1,7 @@
 <%= nested_form_for [:admin, @semantic_schema] do |f| %>
   <div class="row">
   <%= f.label :parent_id, "Parent Semantic Schema", class: "span3" %>
-  <%= f.select(:parent_id, options_for_select(SemanticSchema.order("name ASC").all.collect {|ss| [ss.name.capitalize, ss.id]}, f.object.parent_id), { :include_blank => true }, class: "span3") %>
+  <%= f.select(:parent_id, options_for_select(SemanticSchema.order("name ASC").all.collect {|ss| [ss.name, ss.id]}, f.object.parent_id), { :include_blank => true }, class: "span3") %>
   </div>
   <hr />
   <div class="row">

@@ -1,5 +1,5 @@
 <li>
-  <%=link_to semantic_schema.name.capitalize, admin_semantic_schema_path(semantic_schema)%>: <%=semantic_schema.properties.map {|p| p.name}.join(", ")%>
+  <%=link_to semantic_schema.name, admin_semantic_schema_path(semantic_schema)%>: <%=semantic_schema.properties.map {|p| p.name}.join(", ")%>
   <% if semantic_schema.has_children? %>
   <ul>
     <% semantic_schema.children.order("name ASC").each do |sc| %>
