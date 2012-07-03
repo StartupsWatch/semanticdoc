@@ -23,9 +23,9 @@
     </tr>
     <% schema.properties.each do |property| %>
     <tr>
-      <th class="span2"><%=property.name.capitalize %></th>
+      <th class="span2"><%=property.name %></th>
       <td class="span3"><%=property.data_model.name%></td>
-      <td class="span7"><%=property.description.capitalize%><%="(<strong>Example:</strong> #{property.sample_data})".html_safe if property.sample_data.present? %></div></td>
+      <td class="span7"><%=property.description%><%="(<strong>Example:</strong> #{property.sample_data})".html_safe if property.sample_data.present? %></div></td>
     </tr>
     <% end %>
 <% end %>
