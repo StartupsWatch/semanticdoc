@@ -21,7 +21,7 @@
     <tr>
       <th colspan="3" class="span12">Properties from <%=link_to schema.name, semantic_schema_path(schema)%></th>
     </tr>
-    <% schema.properties.each do |property| %>
+    <% schema.properties.order("name ASC").each do |property| %>
     <tr>
       <th class="span2"><%=property.name %></th>
       <td class="span3"><%=property.data_model.name%></td>
